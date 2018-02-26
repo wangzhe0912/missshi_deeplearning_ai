@@ -2,6 +2,8 @@
 """
 # WANGZHE12
 """
+import numpy as np
+
 
 def initialize_parameters_zeros(layers_dims):
     """
