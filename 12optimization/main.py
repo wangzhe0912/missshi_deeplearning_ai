@@ -2,11 +2,11 @@
 """
 # WANGZHE12
 """
+
 import matplotlib.pyplot as plt
-from opt_utils import predict, predict_dec, plot_decision_boundary, load_dataset
-from testCases import *
 from models import model
 
+from opt_utils import predict, predict_dec, plot_decision_boundary, load_dataset
 
 plt.rcParams['figure.figsize'] = (7.0, 4.0) # set default size of plots
 plt.rcParams['image.interpolation'] = 'nearest'

@@ -37,7 +37,7 @@ def initialize_adam(parameters):
         v["db" + str(l + 1)] = np.zeros(parameters['b' + str(l + 1)].shape)
         s["dW" + str(l + 1)] = np.zeros(parameters['W' + str(l + 1)].shape)
         s["db" + str(l + 1)] = np.zeros(parameters['b' + str(l + 1)].shape)
-    ### END CODE HERE ###
+        ### END CODE HERE ###
 
     return v, s
 
@@ -99,10 +99,8 @@ def update_parameters_with_adam(parameters, grads, v, s, t, learning_rate=0.01,
 
         # Update parameters. Inputs: "parameters, learning_rate, v_corrected, s_corrected, epsilon". Output: "parameters".
         ### START CODE HERE ### (approx. 2 lines)
-        parameters["W" + str(l + 1)] = parameters["W" + str(l + 1)] - learning_rate * v_corrected["dW" + str(l + 1)] / (
-        s_corrected["dW" + str(l + 1)] ** 0.5 + epsilon)
-        parameters["b" + str(l + 1)] = parameters["b" + str(l + 1)] - learning_rate * v_corrected["db" + str(l + 1)] / (
-        s_corrected["db" + str(l + 1)] ** 0.5 + epsilon)
+        parameters["W" + str(l + 1)] = parameters["W" + str(l + 1)] - learning_rate * v_corrected["dW" + str(l + 1)] / (s_corrected["dW" + str(l + 1)] ** 0.5 + epsilon)
+        parameters["b" + str(l + 1)] = parameters["b" + str(l + 1)] - learning_rate * v_corrected["db" + str(l + 1)] / (s_corrected["db" + str(l + 1)] ** 0.5 + epsilon)
         ### END CODE HERE ###
 
     return parameters, v, s

@@ -10,6 +10,7 @@ from optimize.gd import update_parameters_with_gd
 from optimize.momentum import initialize_velocity, update_parameters_with_momentum
 from optimize.adam import initialize_adam, update_parameters_with_adam
 from opt_utils import compute_cost
+from testCases import *
 
 
 plt.rcParams['figure.figsize'] = (5.0, 4.0)  # set default size of plots
@@ -91,7 +92,7 @@ def model(X, Y, layers_dims, optimizer, learning_rate=0.0007, mini_batch_size=64
 
     # Initialize parameters
     parameters = initialize_parameters(layers_dims)
-
+    print "parameters:", parameters
     # Initialize the optimizer
     if optimizer == "gd":
         pass  # no initialization required for gradient descent
@@ -145,3 +146,15 @@ def model(X, Y, layers_dims, optimizer, learning_rate=0.0007, mini_batch_size=64
     plt.show()
 
     return parameters
+
+
+X_assess, Y_assess, mini_batch_size = random_mini_batches_test_case()
+mini_batches = random_mini_batches(X_assess, Y_assess, mini_batch_size)
+
+print ("shape of the 1st mini_batch_X: " + str(mini_batches[0][0].shape))
+print ("shape of the 2nd mini_batch_X: " + str(mini_batches[1][0].shape))
+print ("shape of the 3rd mini_batch_X: " + str(mini_batches[2][0].shape))
+print ("shape of the 1st mini_batch_Y: " + str(mini_batches[0][1].shape))
+print ("shape of the 2nd mini_batch_Y: " + str(mini_batches[1][1].shape))
+print ("shape of the 3rd mini_batch_Y: " + str(mini_batches[2][1].shape))
+print ("mini batch sanity check: " + str(mini_batches[0][0][0][0:3]))
